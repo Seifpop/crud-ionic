@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Mettre à jour la personne</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="updatePersonne()">
+    <ion-item>
+      <ion-label position="floating">name</ion-label>
+      <ion-input [(ngModel)]="personne.name" name="name" required></ion-input>
+  </ion-item>
+      <ion-item>
+          <ion-label position="floating">City</ion-label>
+          <ion-input [(ngModel)]="personne.city" name="city" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Phone Number</ion-label>
+          <ion-input [(ngModel)]="personne.phoneNumber" name="phoneNumber" required></ion-input>
+      </ion-item>
+      
+      <ion-button expand="full" type="submit" [disabled]="!personne.name || !personne.city || !personne.phoneNumber">
+          Mettre à jour
+      </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Liste des personnes</ion-title>
+      <ion-button slot="end" fill="clear" color="success" [routerLink]="['/create-personne']">Ajouter une personne</ion-button>
+    
+  </ion-toolbar>
+</ion-header>
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Personnes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    @for (personne of personnes; track personne.id) {
+      <ion-item>
+         {{personne.name}} {{ personne.city }} - {{ personne.phoneNumber }}
+        @if (personne.id !== undefined) {
+          <ion-button fill="clear" slot="end" color="danger"(click)="deletePersonne(personne.id)">
+          Supprimer
+        </ion-button>
+        } 
+         <ion-button fill="clear" [routerLink]="['/update-personne', personne.id]" slot="end">Mettre à jour</ion-button>
+      </ion-item>
+    }
+  </ion-list>
+</ion-content>
+
